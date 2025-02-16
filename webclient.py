@@ -25,12 +25,16 @@ def webclient(host: str, port: str | int =80):
     print("-finsih-")
 
 
+def run_client():
+    args = sys.argv[1:]
+    if 0 < len(args) < 3:
+        webclient(*args)
+    else:
+        print(f"Usage: {sys.argv[0]} host [port]")
+        sys.exit(1)
 
-args = sys.argv[1:]
-if 0 < len(args) < 3:
-    webclient(*args)
-else:
-    raise Exception("wrong number of parameters")
+if __name__ == "__main__":
+    run_client()
 
 
 
